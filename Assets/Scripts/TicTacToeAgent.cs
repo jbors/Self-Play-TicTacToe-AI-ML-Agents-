@@ -28,9 +28,13 @@ public class TicTacToeAgent : Agent
     {
         var availableOptions = (int[]) board.GetAvailableFields();
 
+        Debug.unityLogger.Log("Heuristic" + heuristicMethod);
+
         if (heuristicMethod == HeuristicMethod.Random)
         {
-            int randomField = availableOptions[Random.Range(0, availableOptions.Length)];
+            int randomField = Random.Range(0, availableOptions.Length);
+            Debug.unityLogger.Log("In random branch choice " + randomField);
+
             actionsOut[0] = randomField;
         }
         else if (heuristicMethod == HeuristicMethod.MinMax)
